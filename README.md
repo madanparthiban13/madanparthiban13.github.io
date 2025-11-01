@@ -1,61 +1,45 @@
-# [Your Name] - Data Analysis Portfolio
+# Madan Parthiban  
+**Aspiring Data Analyst | Excel | SQL | Python | Power BI | Tableau**
 
-Welcome! This repository contains the complete template for a professional, one-page data analysis portfolio website, hosted for free on GitHub Pages.
+---
 
-## About This Portfolio Template
+## About Me  
+I’m a driven and analytical individual with a passion for uncovering patterns in data to improve business performance.  
+With hands-on experience in IT support and cloud computing, I combine business understanding with technical skills in data analysis, visualization, and automation.  
 
-This portfolio is designed to demonstrate skills in:
-- Data visualization and storytelling
-- Data modeling and analysis
-- Creating interactive, professional dashboards
-- Transforming complex data into actionable insights
+My goal is to turn raw data into clear, actionable insights that drive better decisions.  
+Currently building projects in **Power BI, Python, and SQL** to sharpen my analytical and storytelling abilities.
 
-## 🚀 Projects
+---
 
-This template is set up to showcase your best work. You can easily customize the project cards in the `index.html` file.
+## Core Tools & Skills  
+| Category | Tools |
+|-----------|--------|
+| **Data Analysis** | Excel (Pivot Tables, Power Query), Python |
+| **Visualization** | Power BI, Tableau |
+| **Databases** | SQL (Joins, Aggregation, Filtering) |
+| **Data Cleaning** | Python, Excel, Power BI |
+| **Other Skills** | Critical Thinking, Problem Solving, Stakeholder Management |
 
-### Project Title One
-*A brief description of your project, the tools used, and the key insights derived.*
+---
 
-### Project Title Two
-*A brief description of your project, the tools used, and the key insights derived.*
+## Featured Projects  
 
-### Project Title Three
-*A brief description of your project, the tools used, and the key insights derived.*
+### 🎓 Graduate Employment Trends in Singapore (2018–2023)
+**Tools:** Power BI, Excel  
+**Goal:** Track employment and salary trends across universities over 5 years.  
+**Highlights:**  
+- Combined and cleaned multi-year MOE datasets  
+- Designed KPIs for employment rate and salary growth  
+- Created an interactive Power BI dashboard  
+📈 [View Dashboard](#) | 📁 [Repository →](#)
+
+---
+
+## 📈 Career Goal  
+To grow as a **Data Analyst** capable of connecting data, technology, and business strategy — delivering dashboards and insights that make measurable impact.
+
+---
 
 
-## 🛠️ Skills
-
-Update the `index.html` file to reflect your personal technical skillset. The template is organized into key categories:
-
-- **Data Visualization**: Power BI, Tableau, Matplotlib, etc.
-- **Data Analysis**: SQL, Python (Pandas), R, Excel, etc.
-- **Data Modeling**: Power Query, DAX, Star Schema Design, etc.
-- **Tools**: List any other relevant tools like Power BI Service, specific cloud platforms, etc.
-
-## 💡 How to Use This Template
-
-Creating your own portfolio from this template is a simple, four-step process.
-
-### 1. Create a New Repository from this Template
-Click the green **"Use this template"** button at the top of this repository page, then select **"Create a new repository"**.
-
-### 2. Name Your Repository for GitHub Pages
-This is the most important step. To turn your portfolio into a live website, you **must** name your new repository in the following format:
-`your-username.github.io`
-*(Replace `your-username` with your actual GitHub username.)*
-
-### 3. Customize Your Portfolio
-Open the `index.html` file and begin personalizing it. The file contains helpful `<!--💡UPDATE: ... -->` comments to guide you on where to change:
-- Your name and title
-- Social media links
-- The "About Me" section
-- Your project titles, descriptions, and links
-- Your list of skills
-
-### 4. Add Your Files
-- Upload your profile photo and project preview images to the `assets/images/` folder.
-- Upload your CV (e.g., in PDF format) to the `assets/` folder.
-- Create your favicon and add it to the root folder.
-
-Once you commit your changes, your new portfolio website will be live at `https://your-username.github.io` within a few minutes!
+📫 **Reach me at:** [LinkedIn](https://www.linkedin.com/in/madanparthiban) | [Email](madanparthiban13@gmail.com)  
