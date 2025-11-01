@@ -14,7 +14,7 @@ My goal is to turn raw data into clear, actionable insights that drive better de
 Currently building projects in Power BI, Python, and SQL to sharpen my analytical and storytelling abilities.
 
 <!-- 🌐 Replace "your-username" with your actual GitHub username -->
-### [🏆 Check Out My Full Portfolio Website](https://your-username.github.io/)
+### [🏆 Check Out My Full Portfolio Website](https://madanparthiban13.github.io/)
       
 ## 🔭 What I'm Currently Working On 
 
