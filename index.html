@@ -135,329 +135,168 @@
 </section>
 
 <!-- SKILLS SECTION -->
-<!-- Soft Skillset Section -->
-<section id="soft-skills" class="skills-section">
-  <div class="skills-card" role="region" aria-labelledby="soft-skills-title">
-    <h2 id="soft-skills-title">Soft Skillset</h2>
-    <p class="tagline">A blend of analytical thinking and clear communication to deliver meaningful outcomes.</p>
+import React, { useState } from 'react';
 
-    <ul class="skills-list">
-      <!-- Skill -->
-      <li class="skill" tabindex="0" aria-describedby="tt-critical">
-        <span class="icon" aria-hidden="true">
-          <!-- target icon -->
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
-        </span>
-        <span class="label">Critical Thinking</span>
-        <div class="meter" style="--level:85%"></div>
-        <span class="tooltip" id="tt-critical">Approaches problems logically, evaluates options before deciding.</span>
-      </li>
+export default function SkillsOverview() {
+  const [showTip, setShowTip] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-      <li class="skill" tabindex="0" aria-describedby="tt-problem">
-        <span class="icon" aria-hidden="true">
-          <!-- wrench icon -->
-          <svg viewBox="0 0 24 24"><path d="M22 19l-6.3-6.3a5 5 0 01-6.7-6.7L9 7l2-2-1-1a5 5 0 106.7 6.7L21 18l1 1-0 0z"/></svg>
-        </span>
-        <span class="label">Problem Solving</span>
-        <div class="meter" style="--level:80%"></div>
-        <span class="tooltip" id="tt-problem">Finds root causes; applies practical, data-informed fixes.</span>
-      </li>
+  const softSkills = [
+    { name: 'Critical Thinking', level: '86%' },
+    { name: 'Problem Solving', level: '80%' },
+    { name: 'Communication', level: '78%' },
+    { name: 'Attention to Detail', level: '82%' },
+    { name: 'Adaptability', level: '76%' },
+    { name: 'Storytelling', level: '74%' },
+    { name: 'Curiosity', level: '88%' },
+  ];
 
-      <li class="skill" tabindex="0" aria-describedby="tt-comm">
-        <span class="icon" aria-hidden="true">
-          <!-- chat bubble -->
-          <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>
-        </span>
-        <span class="label">Communication</span>
-        <div class="meter" style="--level:78%"></div>
-        <span class="tooltip" id="tt-comm">Explains complex ideas to both technical and non-technical audiences.</span>
-      </li>
+  const technicalSkills = {
+    visualization: [
+      { name: 'Power BI', level: '78%' },
+      { name: 'Tableau', level: '65%' },
+      { name: 'Excel Dashboards', level: '82%' },
+    ],
+    analysis: [
+      { name: 'SQL', level: '80%' },
+      { name: 'Advanced Excel', level: '85%' },
+      { name: 'Python', level: '60%' },
+    ],
+    modeling: [
+      { name: 'Power Query (M)', level: '72%' },
+      { name: 'Star Schema Design', level: '68%' },
+      { name: 'ETL Processes', level: '70%' },
+    ],
+  };
 
-      <li class="skill" tabindex="0" aria-describedby="tt-detail">
-        <span class="icon" aria-hidden="true">
-          <!-- search icon -->
-          <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
-        </span>
-        <span class="label">Attention to Detail</span>
-        <div class="meter" style="--level:82%"></div>
-        <span class="tooltip" id="tt-detail">Accuracy in analysis, documentation, and reporting.</span>
-      </li>
+  return (
+    <section className={`${darkMode ? 'dark' : ''} bg-slate-50 dark:bg-slate-900 py-20 px-6 relative transition-colors duration-500`}>
+      <div className="max-w-6xl mx-auto text-center mb-12 relative">
+        <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">Skills Overview</h2>
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="absolute right-0 top-0 px-4 py-2 text-sm bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition"
+        >
+          {darkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
 
-      <li class="skill" tabindex="0" aria-describedby="tt-adapt">
-        <span class="icon" aria-hidden="true">
-          <!-- refresh icon -->
-          <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0115.55-5.55L21 3v7h-7l2.6-2.6A6 6 0 106 12"/></svg>
-        </span>
-        <span class="label">Adaptability</span>
-        <div class="meter" style="--level:76%"></div>
-        <span class="tooltip" id="tt-adapt">Learns tools quickly; adjusts to changing priorities.</span>
-      </li>
-
-      <li class="skill" tabindex="0" aria-describedby="tt-story">
-        <span class="icon" aria-hidden="true">
-          <!-- bar chart -->
-          <svg viewBox="0 0 24 24"><path d="M4 20h16M7 17V9M12 17V5M17 17v-7"/></svg>
-        </span>
-        <span class="label">Storytelling</span>
-        <div class="meter" style="--level:74%"></div>
-        <span class="tooltip" id="tt-story">Turns data into clear narratives and actionable insights.</span>
-      </li>
-
-      <li class="skill" tabindex="0" aria-describedby="tt-curiosity">
-        <span class="icon" aria-hidden="true">
-          <!-- compass -->
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4 6l-3 7-7 3 3-7 7-3z"/></svg>
-        </span>
-        <span class="label">Curiosity</span>
-        <div class="meter" style="--level:88%"></div>
-        <span class="tooltip" id="tt-curiosity">Continuously explores new methods and technologies.</span>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<style>
-  :root{
-    --bg: #f7f9fc;
-    --card: #ffffff;
-    --ink: #1f2937;
-    --muted:#6b7280;
-    --brand:#3b82f6;         /* primary accent */
-    --brand-weak:#cfe1ff;    /* meter background tint */
-    --ring: rgba(59,130,246,.25);
-    --shadow: 0 10px 30px rgba(0,0,0,.06);
-    --radius: 16px;
-  }
-  .skills-section{padding: 64px 20px; background: var(--bg);}
-  .skills-card{
-    max-width: 920px; margin: 0 auto; background: var(--card);
-    border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px 28px;
-  }
-  .skills-card h2{
-    margin: 0 0 6px; font-size: 36px; line-height: 1.1; color: var(--ink);
-    letter-spacing: .2px;
-  }
-  .tagline{color: var(--muted); margin: 0 0 24px; font-size: 15px}
-  .skills-list{list-style: none; margin: 0; padding: 0; display: grid; gap: 10px;}
-  @media (min-width: 720px){ .skills-list{grid-template-columns: 1fr 1fr;} }
-
-  .skill{
-    display: grid; grid-template-columns: 28px 1fr 120px; align-items: center;
-    gap: 12px; padding: 12px 14px; border-radius: 12px; position: relative;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-  }
-  .skill:focus-visible{outline: none; box-shadow: 0 0 0 4px var(--ring);}
-  .skill:hover{background:#f4f7ff; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(59,130,246,.08);}
-
-  .icon svg{width: 22px; height:22px; fill: none; stroke: var(--brand); stroke-width: 2;}
-  .label{font-weight: 600; color: var(--ink); letter-spacing:.2px}
-
-  .meter{
-    height: 8px; border-radius: 999px; background: var(--brand-weak); position: relative; overflow:hidden;
-  }
-  .meter::after{
-    content:""; position:absolute; inset:0; width: var(--level, 70%); background: var(--brand);
-    border-radius: inherit; transition: width .4s ease;
-  }
-
-  /* Tooltips */
-  .tooltip{
-    position: absolute; left: 56px; right: 14px; top: 100%;
-    background: #0f172a; color: #fff; font-size: 12.5px; line-height: 1.4;
-    padding: 10px 12px; border-radius: 10px; opacity: 0; transform: translateY(6px);
-    pointer-events: none; transition: all .18s ease; box-shadow: 0 10px 24px rgba(0,0,0,.15);
-  }
-  .skill:hover .tooltip, .skill:focus .tooltip{opacity: 1; transform: translateY(2px);}
-</style>
-<!-- ===== Skills Overview ===== -->
-<section id="skills-overview" class="skills-wrap">
-  <h2 class="section-title">Skills Overview</h2>
-  <p class="section-sub">A concise view of my interpersonal strengths and technical capabilities.</p>
-
-  <div class="skills-grid">
-    <!-- Soft Skills -->
-    <div class="skills-card" role="region" aria-labelledby="soft-title">
-      <h3 id="soft-title">Soft Skillset</h3>
-      <p class="tagline">A blend of analytical thinking and clear communication to deliver meaningful outcomes.</p>
-
-      <ul class="skills-list">
-        <li class="skill" style="--level:86%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
-          </span>
-          <span class="label">Critical Thinking</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:80%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M22 19l-6.3-6.3a5 5 0 01-6.7-6.7L9 7l2-2-1-1a5 5 0 106.7 6.7L21 18l1 1z"/></svg>
-          </span>
-          <span class="label">Problem Solving</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:78%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>
-          </span>
-          <span class="label">Communication</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:82%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
-          </span>
-          <span class="label">Attention to Detail</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:76%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0115.55-5.55L21 3v7h-7l2.6-2.6A6 6 0 106 12"/></svg>
-          </span>
-          <span class="label">Adaptability</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:74%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M4 20h16M7 17V9M12 17V5M17 17v-7"/></svg>
-          </span>
-          <span class="label">Storytelling</span>
-          <div class="meter"></div>
-        </li>
-
-        <li class="skill" style="--level:88%">
-          <span class="icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4 6l-3 7-7 3 3-7 7-3z"/></svg>
-          </span>
-          <span class="label">Curiosity</span>
-          <div class="meter"></div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Spacer (auto-collapses on mobile) -->
-    <div class="skills-spacer" aria-hidden="true"></div>
-
-    <!-- Technical Skills -->
-    <div class="skills-card" role="region" aria-labelledby="tech-title">
-      <h3 id="tech-title">Technical Skillset</h3>
-      <p class="tagline">Tools and practices I use to turn data into decisions.</p>
-
-      <div class="tech-columns">
-        <div class="tech-col">
-          <h4 class="tech-head">
-            <span class="tech-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM7 13h4V7H7v6zm6 4h4v-8h-4v8z"/></svg>
-            </span>
-            Data Visualization
-          </h4>
-          <ul class="tech-list">
-            <li>Power BI<div class="meter small" style="--level:78%"></div></li>
-            <li>Tableau<div class="meter small" style="--level:65%"></div></li>
-            <li>Excel Dashboards<div class="meter small" style="--level:82%"></div></li>
-          </ul>
-        </div>
-
-        <div class="tech-col">
-          <h4 class="tech-head">
-            <span class="tech-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
-            </span>
-            Data Analysis
-          </h4>
-          <ul class="tech-list">
-            <li>SQL<div class="meter small" style="--level:80%"></div></li>
-            <li>Advanced Excel<div class="meter small" style="--level:85%"></div></li>
-            <li>Python<div class="meter small" style="--level:60%"></div></li>
-          </ul>
-        </div>
-
-        <div class="tech-col">
-          <h4 class="tech-head">
-            <span class="tech-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M3 4h18v4H3zM3 10h10v4H3zM3 16h18v4H3z"/></svg>
-            </span>
-            Data Modeling & ETL
-          </h4>
-          <ul class="tech-list">
-            <li>Power Query (M)<div class="meter small" style="--level:72%"></div></li>
-            <li>Star Schema Design<div class="meter small" style="--level:68%"></div></li>
-            <li>ETL Processes<div class="meter small" style="--level:70%"></div></li>
-          </ul>
+        <div
+          className="inline-flex items-center justify-center space-x-2 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-blue-600 relative"
+          onMouseEnter={() => setShowTip(true)}
+          onMouseLeave={() => setShowTip(false)}
+        >
+          <span>A concise view of my interpersonal strengths and technical capabilities.</span>
+          {showTip && (
+            <div className="absolute mt-8 px-4 py-2 bg-slate-900 dark:bg-slate-800 text-white text-sm rounded-md shadow-lg w-80">
+              Soft skills reflect collaboration and adaptability, while technical skills highlight my analytical and data proficiency.
+            </div>
+          )}
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<style>
-  :root{
-    --bg:#f7f9fc; --card:#fff; --ink:#111827; --muted:#6b7280;
-    --brand:#3b82f6; --brand-weak:#d8e6ff; --radius:16px;
-    --shadow:0 10px 30px rgba(0,0,0,.06);
-  }
-  .skills-wrap{padding:64px 20px; background:var(--bg)}
-  .section-title{
-    text-align:center; font-size:42px; margin:0; color:var(--ink); letter-spacing:.2px
-  }
-  .section-sub{max-width:760px; margin:8px auto 28px; color:var(--muted); text-align:center}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
+        {/* Divider */}
+        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
 
-  .skills-grid{
-    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:22px;
-  }
-  @media (min-width: 960px){
-    .skills-grid{grid-template-columns:1fr 24px 1fr;}
-  }
+        {/* Soft Skillset */}
+        <div className="bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 rounded-2xl p-8 relative z-10">
+          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Soft Skillset</h3>
+          <p className="text-slate-600 dark:text-slate-300 mb-6">
+            A blend of analytical thinking and clear communication to deliver meaningful outcomes.
+          </p>
 
-  .skills-spacer{width:24px}
-  @media (max-width: 959px){ .skills-spacer{display:none} }
+          <div className="grid sm:grid-cols-2 gap-4">
+            {softSkills.map((skill) => (
+              <div key={skill.name} className="flex flex-col space-y-1 hover:bg-slate-50 dark:hover:bg-slate-700 p-2 rounded-lg transition">
+                <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
+                  <span>{skill.name}</span>
+                  <span>{skill.level}</span>
+                </div>
+                <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-  .skills-card{
-    background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-    padding:28px 24px;
-  }
-  .skills-card h3{font-size:28px; margin:0 0 6px; color:var(--ink)}
-  .tagline{color:var(--muted); margin:0 0 18px; font-size:15px}
+        {/* Technical Skillset */}
+        <div className="bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 rounded-2xl p-8 relative z-10">
+          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Technical Skillset</h3>
+          <p className="text-slate-600 dark:text-slate-300 mb-6">
+            Tools and practices I use to turn data into decisions.
+          </p>
 
-  /* SOFT SKILLS LIST */
-  .skills-list{list-style:none; margin:0; padding:0; display:grid; gap:10px}
-  @media (min-width:720px){ .skills-list{grid-template-columns:1fr 1fr} }
+          <div className="grid auto-cols-fr md:auto-cols-max md:grid-flow-col gap-6">
+            {/* Data Visualization */}
+            <div>
+              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Visualization</h4>
+              {technicalSkills.visualization.map((item) => (
+                <div key={item.name} className="mb-3">
+                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
+                    <span>{item.name}</span>
+                    <span>{item.level}</span>
+                  </div>
+                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
+                      style={{ width: item.level }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-  .skill{
-    display:grid; grid-template-columns:28px 1fr 120px; align-items:center; gap:12px;
-    padding:10px 12px; border-radius:12px; transition:background .2s ease, transform .2s ease;
-  }
-  .skill:hover{background:#f4f7ff; transform:translateY(-1px)}
-  .icon svg{width:20px; height:20px; fill:none; stroke:var(--brand); stroke-width:2}
-  .label{font-weight:600; color:var(--ink)}
+            {/* Data Analysis */}
+            <div>
+              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Analysis</h4>
+              {technicalSkills.analysis.map((item) => (
+                <div key={item.name} className="mb-3">
+                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
+                    <span>{item.name}</span>
+                    <span>{item.level}</span>
+                  </div>
+                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
+                      style={{ width: item.level }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-  .meter{
-    height:8px; border-radius:999px; background:var(--brand-weak); position:relative; overflow:hidden;
-  }
-  .meter::after{
-    content:""; position:absolute; inset:0; width:var(--level,70%); background:var(--brand);
-    border-radius:inherit; transition:width .4s ease;
-  }
-  .meter.small{height:6px}
+            {/* Data Modeling & ETL */}
+            <div>
+              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Modeling & ETL</h4>
+              {technicalSkills.modeling.map((item) => (
+                <div key={item.name} className="mb-3">
+                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
+                    <span>{item.name}</span>
+                    <span>{item.level}</span>
+                  </div>
+                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
+                      style={{ width: item.level }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
-  /* TECH COLUMNS */
-  .tech-columns{display:grid; gap:18px}
-  @media (min-width:720px){ .tech-columns{grid-template-columns:1fr 1fr 1fr} }
+      {/* Soft Gradient Shadow Between Cards */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-700 to-transparent blur-sm"></div>
+    </section>
+  );
+}
 
-  .tech-head{display:flex; align-items:center; gap:10px; margin:8px 0 10px; font-size:18px}
-  .tech-icon svg{width:18px; height:18px; fill:none; stroke:var(--brand); stroke-width:2}
-
-  .tech-list{list-style:none; margin:0; padding:0; display:grid; gap:8px}
-  .tech-list li{
-    display:grid; grid-template-columns:1fr 120px; align-items:center; gap:12px;
-    padding:8px 10px; border-radius:10px; transition:background .2s ease;
-  }
-  .tech-list li:hover{background:#f4f7ff}
-</style>
 
 <!-- CONTACT FORM SECTION -->
 <section id="contact" class="section">
