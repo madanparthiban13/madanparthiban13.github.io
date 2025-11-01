@@ -135,167 +135,196 @@
 </section>
 
 <!-- SKILLS SECTION -->
-import React, { useState } from 'react';
+  <title>Skills Overview</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      margin: 0;
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark-mode {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      color: #64748b;
+      font-size: 1rem;
+    }
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      background: #e2e8f0;
+      color: #1e293b;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toggle-btn:hover {
+      background: #cbd5e1;
+    }
+    .dark-mode .toggle-btn {
+      background: #334155;
+      color: #f1f5f9;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 50px;
+      position: relative;
+    }
+    .skills-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark-mode .skills-card {
+      background: #1e293b;
+      border-color: #475569;
+    }
+    .skills-divider {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+    }
+    .dark-mode .skills-divider {
+      background: linear-gradient(to bottom, transparent, #475569, transparent);
+    }
+    .skill-item {
+      margin-bottom: 15px;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+    .skill-bar {
+      width: 100%;
+      height: 6px;
+      background: #e0f2fe;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .skill-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 4px;
+      transition: width 0.5s;
+    }
+    .dark-mode .skill-bar {
+      background: #1e3a8a;
+    }
+    .dark-mode .skill-fill {
+      background: #60a5fa;
+    }
+    .tooltip {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      color: #475569;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: 280px;
+      background-color: #1e293b;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Dark Mode</button>
 
-export default function SkillsOverview() {
-  const [showTip, setShowTip] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  <div class="container">
+    <h2>Skills Overview</h2>
+    <div class="tooltip">
+      <p class="subtitle">A concise view of my interpersonal strengths and technical capabilities.</p>
+      <span class="tooltip-text">Soft skills reflect collaboration and adaptability, while technical skills highlight my analytical and data proficiency.</span>
+    </div>
 
-  const softSkills = [
-    { name: 'Critical Thinking', level: '86%' },
-    { name: 'Problem Solving', level: '80%' },
-    { name: 'Communication', level: '78%' },
-    { name: 'Attention to Detail', level: '82%' },
-    { name: 'Adaptability', level: '76%' },
-    { name: 'Storytelling', level: '74%' },
-    { name: 'Curiosity', level: '88%' },
-  ];
-
-  const technicalSkills = {
-    visualization: [
-      { name: 'Power BI', level: '78%' },
-      { name: 'Tableau', level: '65%' },
-      { name: 'Excel Dashboards', level: '82%' },
-    ],
-    analysis: [
-      { name: 'SQL', level: '80%' },
-      { name: 'Advanced Excel', level: '85%' },
-      { name: 'Python', level: '60%' },
-    ],
-    modeling: [
-      { name: 'Power Query (M)', level: '72%' },
-      { name: 'Star Schema Design', level: '68%' },
-      { name: 'ETL Processes', level: '70%' },
-    ],
-  };
-
-  return (
-    <section className={`${darkMode ? 'dark' : ''} bg-slate-50 dark:bg-slate-900 py-20 px-6 relative transition-colors duration-500`}>
-      <div className="max-w-6xl mx-auto text-center mb-12 relative">
-        <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">Skills Overview</h2>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="absolute right-0 top-0 px-4 py-2 text-sm bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition"
-        >
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
-
-        <div
-          className="inline-flex items-center justify-center space-x-2 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-blue-600 relative"
-          onMouseEnter={() => setShowTip(true)}
-          onMouseLeave={() => setShowTip(false)}
-        >
-          <span>A concise view of my interpersonal strengths and technical capabilities.</span>
-          {showTip && (
-            <div className="absolute mt-8 px-4 py-2 bg-slate-900 dark:bg-slate-800 text-white text-sm rounded-md shadow-lg w-80">
-              Soft skills reflect collaboration and adaptability, while technical skills highlight my analytical and data proficiency.
-            </div>
-          )}
-        </div>
+    <div class="skills-grid">
+      <div class="skills-card">
+        <h3>Soft Skillset</h3>
+        <p>A blend of analytical thinking and clear communication to deliver meaningful outcomes.</p>
+        <div class="skill-item"><div class="skill-label"><span>Critical Thinking</span><span>86%</span></div><div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Problem Solving</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Communication</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Attention to Detail</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Adaptability</span><span>76%</span></div><div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Storytelling</span><span>74%</span></div><div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Curiosity</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
-        {/* Divider */}
-        <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-700 to-transparent"></div>
+      <div class="skills-divider"></div>
 
-        {/* Soft Skillset */}
-        <div className="bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 rounded-2xl p-8 relative z-10">
-          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Soft Skillset</h3>
-          <p className="text-slate-600 dark:text-slate-300 mb-6">
-            A blend of analytical thinking and clear communication to deliver meaningful outcomes.
-          </p>
+      <div class="skills-card">
+        <h3>Technical Skillset</h3>
+        <p>Tools and practices I use to turn data into decisions.</p>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {softSkills.map((skill) => (
-              <div key={skill.name} className="flex flex-col space-y-1 hover:bg-slate-50 dark:hover:bg-slate-700 p-2 rounded-lg transition">
-                <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
-                  <span>{skill.name}</span>
-                  <span>{skill.level}</span>
-                </div>
-                <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <h4>Data Visualization</h4>
+        <div class="skill-item"><div class="skill-label"><span>Power BI</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Tableau</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Excel Dashboards</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
 
-        {/* Technical Skillset */}
-        <div className="bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 hover:shadow-xl transition-all duration-300 rounded-2xl p-8 relative z-10">
-          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Technical Skillset</h3>
-          <p className="text-slate-600 dark:text-slate-300 mb-6">
-            Tools and practices I use to turn data into decisions.
-          </p>
+        <h4>Data Analysis</h4>
+        <div class="skill-item"><div class="skill-label"><span>SQL</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Advanced Excel</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Python</span><span>60%</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
 
-          <div className="grid auto-cols-fr md:auto-cols-max md:grid-flow-col gap-6">
-            {/* Data Visualization */}
-            <div>
-              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Visualization</h4>
-              {technicalSkills.visualization.map((item) => (
-                <div key={item.name} className="mb-3">
-                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
-                    <span>{item.name}</span>
-                    <span>{item.level}</span>
-                  </div>
-                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
-                      style={{ width: item.level }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Data Analysis */}
-            <div>
-              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Analysis</h4>
-              {technicalSkills.analysis.map((item) => (
-                <div key={item.name} className="mb-3">
-                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
-                    <span>{item.name}</span>
-                    <span>{item.level}</span>
-                  </div>
-                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
-                      style={{ width: item.level }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Data Modeling & ETL */}
-            <div>
-              <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">Data Modeling & ETL</h4>
-              {technicalSkills.modeling.map((item) => (
-                <div key={item.name} className="mb-3">
-                  <div className="flex justify-between text-sm font-medium text-slate-800 dark:text-slate-200">
-                    <span>{item.name}</span>
-                    <span>{item.level}</span>
-                  </div>
-                  <div className="h-2 bg-blue-100 dark:bg-blue-900 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-500"
-                      style={{ width: item.level }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <h4>Data Modeling & ETL</h4>
+        <div class="skill-item"><div class="skill-label"><span>Power Query (M)</span><span>72%</span></div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Star Schema Design</span><span>68%</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>ETL Processes</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
       </div>
+    </div>
+  </div>
 
-      {/* Soft Gradient Shadow Between Cards */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-200 dark:via-slate-700 to-transparent blur-sm"></div>
-    </section>
-  );
-}
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.toggle-btn');
+      btn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
+  </script>
+</body>
+</html>
+
 
 
 <!-- CONTACT FORM SECTION -->
