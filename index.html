@@ -269,54 +269,195 @@
   }
   .skill:hover .tooltip, .skill:focus .tooltip{opacity: 1; transform: translateY(2px);}
 </style>
+<!-- ===== Skills Overview ===== -->
+<section id="skills-overview" class="skills-wrap">
+  <h2 class="section-title">Skills Overview</h2>
+  <p class="section-sub">A concise view of my interpersonal strengths and technical capabilities.</p>
 
-    <section id="skills" class="section">
-        <div class="container"> 
-            <h2>Technical Skillset</h2>
-            <div class="skills-table">
-            
-                <!--💡UPDATE: Customize your skills in each category-->
-                <!-- Column 1: Data Visualization -->
-                <div class="skill-column">
-                    <div class="skill-header">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Data Visualization</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>Power BI</li>
-                    <li>Tableau</li>
-                    <li>Excel Dashboards</li>
-                </ul>
-            </div>
+  <div class="skills-grid">
+    <!-- Soft Skills -->
+    <div class="skills-card" role="region" aria-labelledby="soft-title">
+      <h3 id="soft-title">Soft Skillset</h3>
+      <p class="tagline">A blend of analytical thinking and clear communication to deliver meaningful outcomes.</p>
 
-            <!-- Column 2: Data Analysis -->
-            <div class="skill-column">
-                <div class="skill-header">
-                    <i class="fas fa-search-plus"></i>
-                    <h3>Data Analysis</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>SQL</li>
-                    <li>Advanced Excel</li>
-                    <li>Python</li>
-                </ul>
-            </div>
+      <ul class="skills-list">
+        <li class="skill" style="--level:86%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
+          </span>
+          <span class="label">Critical Thinking</span>
+          <div class="meter"></div>
+        </li>
 
-            <!-- Column 3: Data Modeling & ETL -->
-            <div class="skill-column">
-                <div class="skill-header">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Data Modeling & ETL</h3>
-                </div>
-                <ul class="skill-list">
-                    <li>Power Query (M)</li>
-                    <li>Star Schema Design</li>
-                    <li>ETL Processes</li>
-                </ul>
-            </div>
-        </div>
+        <li class="skill" style="--level:80%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 19l-6.3-6.3a5 5 0 01-6.7-6.7L9 7l2-2-1-1a5 5 0 106.7 6.7L21 18l1 1z"/></svg>
+          </span>
+          <span class="label">Problem Solving</span>
+          <div class="meter"></div>
+        </li>
+
+        <li class="skill" style="--level:78%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>
+          </span>
+          <span class="label">Communication</span>
+          <div class="meter"></div>
+        </li>
+
+        <li class="skill" style="--level:82%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"/></svg>
+          </span>
+          <span class="label">Attention to Detail</span>
+          <div class="meter"></div>
+        </li>
+
+        <li class="skill" style="--level:76%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0115.55-5.55L21 3v7h-7l2.6-2.6A6 6 0 106 12"/></svg>
+          </span>
+          <span class="label">Adaptability</span>
+          <div class="meter"></div>
+        </li>
+
+        <li class="skill" style="--level:74%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 20h16M7 17V9M12 17V5M17 17v-7"/></svg>
+          </span>
+          <span class="label">Storytelling</span>
+          <div class="meter"></div>
+        </li>
+
+        <li class="skill" style="--level:88%">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4 6l-3 7-7 3 3-7 7-3z"/></svg>
+          </span>
+          <span class="label">Curiosity</span>
+          <div class="meter"></div>
+        </li>
+      </ul>
     </div>
+
+    <!-- Spacer (auto-collapses on mobile) -->
+    <div class="skills-spacer" aria-hidden="true"></div>
+
+    <!-- Technical Skills -->
+    <div class="skills-card" role="region" aria-labelledby="tech-title">
+      <h3 id="tech-title">Technical Skillset</h3>
+      <p class="tagline">Tools and practices I use to turn data into decisions.</p>
+
+      <div class="tech-columns">
+        <div class="tech-col">
+          <h4 class="tech-head">
+            <span class="tech-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM7 13h4V7H7v6zm6 4h4v-8h-4v8z"/></svg>
+            </span>
+            Data Visualization
+          </h4>
+          <ul class="tech-list">
+            <li>Power BI<div class="meter small" style="--level:78%"></div></li>
+            <li>Tableau<div class="meter small" style="--level:65%"></div></li>
+            <li>Excel Dashboards<div class="meter small" style="--level:82%"></div></li>
+          </ul>
+        </div>
+
+        <div class="tech-col">
+          <h4 class="tech-head">
+            <span class="tech-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h16"/></svg>
+            </span>
+            Data Analysis
+          </h4>
+          <ul class="tech-list">
+            <li>SQL<div class="meter small" style="--level:80%"></div></li>
+            <li>Advanced Excel<div class="meter small" style="--level:85%"></div></li>
+            <li>Python<div class="meter small" style="--level:60%"></div></li>
+          </ul>
+        </div>
+
+        <div class="tech-col">
+          <h4 class="tech-head">
+            <span class="tech-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 4h18v4H3zM3 10h10v4H3zM3 16h18v4H3z"/></svg>
+            </span>
+            Data Modeling & ETL
+          </h4>
+          <ul class="tech-list">
+            <li>Power Query (M)<div class="meter small" style="--level:72%"></div></li>
+            <li>Star Schema Design<div class="meter small" style="--level:68%"></div></li>
+            <li>ETL Processes<div class="meter small" style="--level:70%"></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#fff; --ink:#111827; --muted:#6b7280;
+    --brand:#3b82f6; --brand-weak:#d8e6ff; --radius:16px;
+    --shadow:0 10px 30px rgba(0,0,0,.06);
+  }
+  .skills-wrap{padding:64px 20px; background:var(--bg)}
+  .section-title{
+    text-align:center; font-size:42px; margin:0; color:var(--ink); letter-spacing:.2px
+  }
+  .section-sub{max-width:760px; margin:8px auto 28px; color:var(--muted); text-align:center}
+
+  .skills-grid{
+    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:22px;
+  }
+  @media (min-width: 960px){
+    .skills-grid{grid-template-columns:1fr 24px 1fr;}
+  }
+
+  .skills-spacer{width:24px}
+  @media (max-width: 959px){ .skills-spacer{display:none} }
+
+  .skills-card{
+    background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:28px 24px;
+  }
+  .skills-card h3{font-size:28px; margin:0 0 6px; color:var(--ink)}
+  .tagline{color:var(--muted); margin:0 0 18px; font-size:15px}
+
+  /* SOFT SKILLS LIST */
+  .skills-list{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+  @media (min-width:720px){ .skills-list{grid-template-columns:1fr 1fr} }
+
+  .skill{
+    display:grid; grid-template-columns:28px 1fr 120px; align-items:center; gap:12px;
+    padding:10px 12px; border-radius:12px; transition:background .2s ease, transform .2s ease;
+  }
+  .skill:hover{background:#f4f7ff; transform:translateY(-1px)}
+  .icon svg{width:20px; height:20px; fill:none; stroke:var(--brand); stroke-width:2}
+  .label{font-weight:600; color:var(--ink)}
+
+  .meter{
+    height:8px; border-radius:999px; background:var(--brand-weak); position:relative; overflow:hidden;
+  }
+  .meter::after{
+    content:""; position:absolute; inset:0; width:var(--level,70%); background:var(--brand);
+    border-radius:inherit; transition:width .4s ease;
+  }
+  .meter.small{height:6px}
+
+  /* TECH COLUMNS */
+  .tech-columns{display:grid; gap:18px}
+  @media (min-width:720px){ .tech-columns{grid-template-columns:1fr 1fr 1fr} }
+
+  .tech-head{display:flex; align-items:center; gap:10px; margin:8px 0 10px; font-size:18px}
+  .tech-icon svg{width:18px; height:18px; fill:none; stroke:var(--brand); stroke-width:2}
+
+  .tech-list{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+  .tech-list li{
+    display:grid; grid-template-columns:1fr 120px; align-items:center; gap:12px;
+    padding:8px 10px; border-radius:10px; transition:background .2s ease;
+  }
+  .tech-list li:hover{background:#f4f7ff}
+</style>
 
 <!-- CONTACT FORM SECTION -->
 <section id="contact" class="section">
