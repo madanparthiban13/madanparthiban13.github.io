@@ -144,24 +144,29 @@
       margin: 0;
       transition: background 0.5s, color 0.5s;
     }
+
     .dark-mode {
       background-color: #0f172a;
       color: #f1f5f9;
     }
+
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 60px auto;
       padding: 20px;
       text-align: center;
     }
+
     h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
+
     p.subtitle {
       color: #64748b;
       font-size: 1rem;
     }
+
     .toggle-btn {
       position: absolute;
       top: 20px;
@@ -174,20 +179,24 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     .toggle-btn:hover {
       background: #cbd5e1;
     }
+
     .dark-mode .toggle-btn {
       background: #334155;
       color: #f1f5f9;
     }
+
     .skills-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
       margin-top: 50px;
       position: relative;
     }
+
     .skills-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -195,76 +204,109 @@
       padding: 30px;
       text-align: left;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: background 0.5s, color 0.5s;
+      transition: background 0.5s, color 0.5s, transform 0.3s;
     }
+
+    .skills-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+    }
+
     .dark-mode .skills-card {
       background: #1e293b;
       border-color: #475569;
     }
+
     .skills-divider {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+      display: none;
     }
-    .dark-mode .skills-divider {
-      background: linear-gradient(to bottom, transparent, #475569, transparent);
+
+    @media (min-width: 900px) {
+      .skills-divider {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+      }
+
+      .dark-mode .skills-divider {
+        background: linear-gradient(to bottom, transparent, #475569, transparent);
+      }
     }
+
     .skill-item {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+      position: relative;
     }
+
     .skill-label {
       display: flex;
       justify-content: space-between;
       font-size: 0.9rem;
+      margin-bottom: 5px;
     }
+
     .skill-bar {
       width: 100%;
-      height: 6px;
+      height: 8px;
       background: #e0f2fe;
       border-radius: 4px;
       overflow: hidden;
-      margin-top: 6px;
+      position: relative;
     }
+
     .skill-fill {
       height: 100%;
-      background: #3b82f6;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
       border-radius: 4px;
-      transition: width 0.5s;
+      transition: width 1s ease-in-out, box-shadow 0.3s;
     }
+
+    .skill-bar:hover .skill-fill {
+      box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    }
+
+    .tooltip-box {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      background: rgba(15, 23, 42, 0.9);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .skill-item:hover .tooltip-box {
+      visibility: visible;
+      opacity: 1;
+    }
+
     .dark-mode .skill-bar {
       background: #1e3a8a;
     }
+
     .dark-mode .skill-fill {
-      background: #60a5fa;
+      background: linear-gradient(90deg, #60a5fa, #93c5fd);
     }
-    .tooltip {
-      display: inline-block;
-      position: relative;
-      cursor: pointer;
-      color: #475569;
+
+    .dark-mode .tooltip-box {
+      background: rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
     }
-    .tooltip-text {
-      visibility: hidden;
-      width: 280px;
-      background-color: #1e293b;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 8px;
-      position: absolute;
-      z-index: 1;
-      bottom: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .tooltip:hover .tooltip-text {
-      visibility: visible;
-      opacity: 1;
+
+    @media (max-width: 768px) {
+      .skills-card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -273,22 +315,19 @@
 
   <div class="container">
     <h2>Skills Overview</h2>
-    <div class="tooltip">
-      <p class="subtitle">A concise view of my interpersonal strengths and technical capabilities.</p>
-      <span class="tooltip-text">Soft skills reflect collaboration and adaptability, while technical skills highlight my analytical and data proficiency.</span>
-    </div>
+    <p class="subtitle">A concise view of my interpersonal strengths and technical capabilities.</p>
 
     <div class="skills-grid">
       <div class="skills-card">
         <h3>Soft Skillset</h3>
         <p>A blend of analytical thinking and clear communication to deliver meaningful outcomes.</p>
-        <div class="skill-item"><div class="skill-label"><span>Critical Thinking</span><span>86%</span></div><div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Problem Solving</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Communication</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Attention to Detail</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Adaptability</span><span>76%</span></div><div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Storytelling</span><span>74%</span></div><div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Curiosity</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Critical Thinking</span><span>86%</span></div><div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div><div class="tooltip-box">Ability to evaluate issues logically and make informed decisions.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Problem Solving</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div><div class="tooltip-box">Approaching challenges with creativity and structured thinking.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Communication</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div><div class="tooltip-box">Delivering ideas clearly and effectively across teams.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Attention to Detail</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div><div class="tooltip-box">Ensuring data and reports are accurate and reliable.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Adaptability</span><span>76%</span></div><div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div><div class="tooltip-box">Adjusting quickly to new tools and dynamic environments.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Storytelling</span><span>74%</span></div><div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div><div class="tooltip-box">Transforming data into engaging and meaningful insights.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Curiosity</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div><div class="tooltip-box">Always exploring new methods and analytical perspectives.</div></div>
       </div>
 
       <div class="skills-divider"></div>
@@ -298,19 +337,19 @@
         <p>Tools and practices I use to turn data into decisions.</p>
 
         <h4>Data Visualization</h4>
-        <div class="skill-item"><div class="skill-label"><span>Power BI</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Tableau</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Excel Dashboards</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Power BI</span><span>78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div><div class="tooltip-box">Designing interactive dashboards and business visuals.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Tableau</span><span>65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div><div class="tooltip-box">Creating visual stories to simplify complex data.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Excel Dashboards</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div><div class="tooltip-box">Automating and visualizing data with advanced Excel tools.</div></div>
 
         <h4>Data Analysis</h4>
-        <div class="skill-item"><div class="skill-label"><span>SQL</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Advanced Excel</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Python</span><span>60%</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>SQL</span><span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div><div class="tooltip-box">Querying databases to extract and transform data.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Advanced Excel</span><span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div><div class="tooltip-box">Performing detailed analysis with formulas and pivots.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Python</span><span>60%</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div><div class="tooltip-box">Scripting for data cleaning and automation.</div></div>
 
         <h4>Data Modeling & ETL</h4>
-        <div class="skill-item"><div class="skill-label"><span>Power Query (M)</span><span>72%</span></div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>Star Schema Design</span><span>68%</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div></div>
-        <div class="skill-item"><div class="skill-label"><span>ETL Processes</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Power Query (M)</span><span>72%</span></div><div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div><div class="tooltip-box">Transforming and preparing datasets for reporting.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>Star Schema Design</span><span>68%</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div><div class="tooltip-box">Building efficient relational data structures.</div></div>
+        <div class="skill-item"><div class="skill-label"><span>ETL Processes</span><span>70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div><div class="tooltip-box">Managing data pipelines for integration and validation.</div></div>
       </div>
     </div>
   </div>
@@ -322,10 +361,6 @@
       btn.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
     }
   </script>
-</body>
-</html>
-
-
 
 <!-- CONTACT FORM SECTION -->
 <section id="contact" class="section">
