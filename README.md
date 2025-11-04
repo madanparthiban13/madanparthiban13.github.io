@@ -19,7 +19,9 @@ Currently building projects in Power BI, Python, and SQL to sharpen my analytica
 ## 🔭 What I'm Currently Working On 
 
 - **🎓 Graduate Employment Analysis in Singapore (2020–2023):** This Power BI dashboard explores graduate employment trends across Singapore’s autonomous universities using data from the MOE Graduate Employment Survey.  
-- **Credit Card Fraud Detection with SQL:** [Brief, one-line description of another project, e.g., Creating an interactive marketing dashboard in Power BI.]
+- **💳 Credit Card Fraud Detection with SQL:** Built a fraud detection system using SQL to analyze 50,000+ synthetic credit card transactions. 
+  The project identifies high-risk activity through query-based rules, designed to simulate how financial institutions
+  investigate suspicious behavior using data alone.
 
 #### Data Analysis & Visualization
 <p>
